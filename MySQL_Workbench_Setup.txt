@@ -1,0 +1,70 @@
+3	62	16:20:01	SELECT first_name, last_name FROM users
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	63	16:27:33	SELECT first_name as first, last_name as hello FROM users
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+0	64	16:28:14	SELECT * from user
+ LIMIT 0, 500	Error Code: 1146. Table 'twitter.user' doesn't exist	0.000 sec
+3	65	16:28:23	SELECT * from users
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	66	16:35:16	SELECT * FROM users
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	67	16:35:46	SELECT * FROM faves
+ LIMIT 0, 500	7 row(s) returned	0.000 sec / 0.000 sec
+3	68	16:36:11	SELECT * FROM follows
+ LIMIT 0, 500	7 row(s) returned	0.000 sec / 0.000 sec
+3	69	16:36:42	SELECT * FROM tweets
+ LIMIT 0, 500	12 row(s) returned	0.000 sec / 0.000 sec
+3	70	16:36:53	SELECT * FROM users
+ LIMIT 0, 500	5 row(s) returned	0.016 sec / 0.000 sec
+3	71	16:37:05	SELECT first_name FROM users
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+0	72	16:37:13	SELECT first_name, lst_name FROM users
+ LIMIT 0, 500	Error Code: 1054. Unknown column 'lst_name' in 'field list'	0.000 sec
+3	73	16:37:16	SELECT first_name, last_name FROM users
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	74	16:37:37	SELECT first_name FROM users WHERE id = 2
+ LIMIT 0, 500	1 row(s) returned	0.000 sec / 0.000 sec
+3	75	16:37:49	SELECT first_name FROM users WHERE id = 2 OR id = 3
+ LIMIT 0, 500	2 row(s) returned	0.000 sec / 0.000 sec
+3	76	16:38:02	SELECT first_name FROM users WHERE id < 2
+ LIMIT 0, 500	1 row(s) returned	0.000 sec / 0.000 sec
+3	77	16:38:10	SELECT first_name FROM users WHERE id > 2
+ LIMIT 0, 500	3 row(s) returned	0.000 sec / 0.000 sec
+3	78	16:38:34	SELECT first_name FROM users WHERE id <= 3
+ LIMIT 0, 500	3 row(s) returned	0.000 sec / 0.000 sec
+0	79	16:40:00	SELECT first_name FROM users WHERE first_name LIKE %e	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%e' at line 1	0.000 sec
+0	80	16:40:17	SELECT * FROM users WHERE first_name LIKE %e	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%e' at line 1	0.000 sec
+0	81	16:40:44	SELECT * FROM users WHERE first_name LIKE K%	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%' at line 1	0.000 sec
+0	82	16:41:48	SELECT * FROM users WHERE first_name LIKE %e	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%e' at line 1	0.000 sec
+3	83	16:41:56	SELECT * FROM users WHERE first_name LIKE "%e"
+ LIMIT 0, 500	2 row(s) returned	0.000 sec / 0.000 sec
+3	84	16:42:41	SELECT * FROM users WHERE first_name <> "K%"
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	85	16:43:14	SELECT * FROM users WHERE first_name <> "K%"
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	86	16:43:46	SELECT * FROM users ORDER BY birthday ASC
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	87	16:45:36	SELECT first_name FROM users ORDER BY first_name
+ LIMIT 0, 500	5 row(s) returned	0.000 sec / 0.000 sec
+3	88	16:46:59	SELECT * FROM users LIMIT 2,3	3 row(s) returned	0.000 sec / 0.000 sec
+3	89	16:52:02	SELECT * FROM tweets
+ LIMIT 0, 500	12 row(s) returned	0.000 sec / 0.000 sec
+0	90	16:53:51	INSERT INTO `twitter`.`tweets` (`id`, `tweet`, `user_id`, `created_at`, `updated_at`) VALUES ('', 'I am vino', '1', '2014-02-01 00:00:01', '2014-02-01 00:00:01')	1366: Incorrect integer value: '' for column 'id' at row 1	
+3	91	16:56:51	INSERT INTO tweets (tweet, user_id, created_at, updated_at)
+ VALUES ("hellloooooo", 1, now(), now())	1 row(s) affected	0.016 sec
+3	92	16:57:07	SELECT * FROM tweets
+ LIMIT 0, 500	14 row(s) returned	0.000 sec / 0.000 sec
+3	93	16:57:58	SELECT * FROM tweets
+ LIMIT 0, 500	14 row(s) returned	0.000 sec / 0.000 sec
+0	94	16:58:43	DELETE FROM 'twitter', 'tweets' WHERE 'id'='13'	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''twitter', 'tweets' WHERE 'id'='13'' at line 1	0.000 sec
+3	95	16:59:27	SET SQL_SAFE_UPDATES = 0	0 row(s) affected	0.000 sec
+0	96	16:59:35	DELETE FROM 'twitter', 'tweets' WHERE 'id'='13'	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''twitter', 'tweets' WHERE 'id'='13'' at line 1	0.000 sec
+0	97	17:00:10	SELECT * FROM twitter
+ LIMIT 0, 500	Error Code: 1146. Table 'twitter.twitter' doesn't exist	0.000 sec
+3	98	17:00:21	SELECT * FROM tweets
+ LIMIT 0, 500	14 row(s) returned	0.000 sec / 0.000 sec
+3	99	17:01:21	DELETE FROM tweets WHERE id = 13	1 row(s) affected	0.016 sec
+3	100	17:01:28	DELETE FROM tweets WHERE id = 14	1 row(s) affected	0.015 sec
+3	101	17:01:40	SELECT * FROM tweets
+ LIMIT 0, 500	12 row(s) returned	0.000 sec / 0.000 sec
+3	102	17:43:23	USE world	0 row(s) affected	0.000 sec
